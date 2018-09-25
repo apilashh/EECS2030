@@ -19,22 +19,20 @@ import java.util.List;
 public class Domino implements Comparable<Domino> {
 
 	// YOU NEED TO ADD SOME public static final FIELDS HERE
-	public static final int MIN_VALUE = 0; 
+	public static final int MIN_VALUE = 0;
 	public static final int MAX_VALUE = 6;
-	
-	
+
 	// YOU NEED TO ADD SOME FIELDS FOR THE STATE OF A DOMINO HERE
-		int value1;
-		int value2;
-	
+	int value1;
+	int value2;
 
 	/**
 	 * Initializes this domino so that both of its values are
 	 * equal to <code>Domino.MIN_VALUE</code>.
 	 */
 	public Domino() {
-		value1 = MIN_VALUE; 
-		value2 = MIN_VALUE; 
+		value1 = MIN_VALUE;
+		value2 = MIN_VALUE;
 	}
 
 	/**
@@ -48,15 +46,14 @@ public class Domino implements Comparable<Domino> {
 	 * @throws IllegalArgumentException
 	 *             if value1 or value2 is not a legal domino value
 	 */
-	public Domino(int value1, int value2)throws IllegalArgumentException  {
-		
-		if (!(Domino.isValueOK(value1)) || !(Domino.isValueOK(value2)))
-		{
+	public Domino(int value1, int value2) throws IllegalArgumentException {
+
+		if (!(Domino.isValueOK(value1)) || !(Domino.isValueOK(value2))) {
 			IllegalArgumentException ex = new IllegalArgumentException("value1 or value2 is not a legal domino value");
 			throw ex;
-		}	
-		this.value1 = value1; 
-		this.value2 = value2; 
+		}
+		this.value1 = value1;
+		this.value2 = value2;
 	}
 
 	/**
@@ -83,7 +80,7 @@ public class Domino implements Comparable<Domino> {
 	public static boolean isValueOK(int value) {
 		if (value <= 6 && value >= 0)
 			return true;
-		else 
+		else
 			return false;
 	}
 
@@ -95,17 +92,16 @@ public class Domino implements Comparable<Domino> {
 	 *         set
 	 */
 	public static List<Domino> allDominoes() {
-		
+
 		List<Domino> list = new ArrayList<Domino>(28);
-		for (int i = 0; i < 7; i++)
-		{
+		for (int i = 0; i < 7; i++) {
 			for (int j = 0; j < 7; j++)
 				if (i <= j)
-					list.add(new Domino(i,j));
+					list.add(new Domino(i, j));
 		}
 		return list;
 	}
-	
+
 	/**
 	 * Returns the value of one of the two sides of the domino (the value of the
 	 * other side of the domino is returned by <code>getValue2</code>).
@@ -148,7 +144,6 @@ public class Domino implements Comparable<Domino> {
 		return (value1 > value2) ? value1 : value2;
 	}
 
-	
 	/**
 	 * Returns true if this domino matches the specified domino, and
 	 * false otherwise.
@@ -169,10 +164,11 @@ public class Domino implements Comparable<Domino> {
 	 * @return true if this domino matches the specified domino,
 	 *         and false otherwise
 	 */
-	public boolean matches(Domino other) { 
-		return (this.value1 == other.value1 || this.value2 == other.value2 || this.value1 == other.value2 || this.value2 == other.value1);
+	public boolean matches(Domino other) {
+		return (this.value1 == other.value1 || this.value2 == other.value2 || this.value1 == other.value2
+				|| this.value2 == other.value1);
 	}
-	
+
 	/**
 	 * Compares two dominoes by their values. The smaller values on
 	 * the two dominoes are compared first; if the smaller values of
@@ -205,13 +201,13 @@ public class Domino implements Comparable<Domino> {
 	@Override
 	public int compareTo(Domino other) {
 		if (this.getSmallerValue() < other.getSmallerValue() || this.getLargerValue() < other.getLargerValue())
-			return -1; 
+			return -1;
 		else if (this.getSmallerValue() > other.getSmallerValue() || this.getLargerValue() > other.getLargerValue())
 			return 1;
-		else 
+		else
 			return 0;
 	}
-	
+
 	/**
 	 * Compares this domino to the specified object. The result is
 	 * true if and only if the argument is a Domino object having the
@@ -232,16 +228,15 @@ public class Domino implements Comparable<Domino> {
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
-			return true; 
+			return true;
 		if (obj == null)
 			return false;
 		if (!(obj instanceof Domino))
-			return false; 
-		Domino o = (Domino)obj;
+			return false;
+		Domino o = (Domino) obj;
 		return (this.compareTo(o) == 0);
 	}
-	
-	
+
 	/**
 	 * Returns a hash code for this domino. The hash code value
 	 * is equal to the smaller value of this domino plus eleven times
@@ -254,7 +249,7 @@ public class Domino implements Comparable<Domino> {
 	public int hashCode() {
 		return this.getSmallerValue() + (this.getLargerValue() * 11);
 	}
-	
+
 	/**
 	 * Returns a string representation of this domino. The returned
 	 * string is the smaller value of this domino followed by
@@ -269,5 +264,5 @@ public class Domino implements Comparable<Domino> {
 	public String toString() {
 		return "[" + this.getSmallerValue() + " " + ":" + " " + this.getLargerValue() + "]";
 	}
-	
+
 }
