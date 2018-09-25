@@ -45,9 +45,9 @@ public class Matrix {
 	 */
 	public Matrix(int nor, int noc, int v) {
 		imp = new int[nor][noc];
-		for(int i = 0; i < nor; i++) 
+		for (int i = 0; i < nor; i++) 
 		{
-			for(int j = 0; j < noc; j++)
+			for (int j = 0; j < noc; j++)
 			{
 				imp[i][j] = v;
 			}
