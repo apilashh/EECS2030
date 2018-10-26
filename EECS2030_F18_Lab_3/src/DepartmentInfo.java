@@ -51,14 +51,14 @@ public class DepartmentInfo {
 	 */
 	@Override
 	public boolean equals(Object obj) {
-		if(this == obj)
+		if (this == obj)
 			return true;
-		if(obj == null)
+		if (obj == null)
 			return false;
-		if(this.getClass() != obj.getClass())
+		if (this.getClass() != obj.getClass())
 			return false;
-		DepartmentInfo other = (DepartmentInfo)obj;
-		if(this.name.equals(other.name) && this.location.equals(other.location))
+		DepartmentInfo other = (DepartmentInfo) obj;
+		if (this.name.equals(other.name) && this.location.equals(other.location))
 			return true; 
 		
 		return false;
