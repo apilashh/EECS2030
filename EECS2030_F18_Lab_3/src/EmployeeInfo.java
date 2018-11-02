@@ -80,12 +80,12 @@ public class EmployeeInfo implements Comparable<EmployeeInfo> {
 	public int compareTo(EmployeeInfo other) {
 		double result = other.salary - this.salary;
 		
-		if(result == 0) {
+		if (result == 0) {
 			int id = other.departmentId - this.departmentId;
 			return id;
 		}
 		else
-			return (int)result; 
+			return (int) result; 
 		
 		
 	}
@@ -98,14 +98,14 @@ public class EmployeeInfo implements Comparable<EmployeeInfo> {
 	 */
 	@Override
 	public boolean equals(Object obj) {
-		if(this == obj)
+		if (this == obj)
 			return true;
-		if(obj == null)
+		if (obj == null)
 			return false;
-		if(this.getClass() != obj.getClass())
+		if (this.getClass() != obj.getClass())
 			return false; 
-		EmployeeInfo other = (EmployeeInfo)obj;
-		if(this.name.equals(other.name) && this.salary == other.salary && this.departmentId == other.departmentId)
+		EmployeeInfo other = (EmployeeInfo) obj;
+		if (this.name.equals(other.name) && this.salary == other.salary && this.departmentId == other.departmentId)
 			return true;
 		
 		return false;
