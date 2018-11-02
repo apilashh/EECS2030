@@ -255,4 +255,4 @@ public class OwnedPiggyBank {
 		return ret;
 
 	}
-}// end class
+} // end class
