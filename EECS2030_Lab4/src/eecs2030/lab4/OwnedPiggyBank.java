@@ -49,7 +49,14 @@ public class OwnedPiggyBank {
 	 *            the piggy bank to copy
 	 */
 	public OwnedPiggyBank(OwnedPiggyBank other) {
-		this.coins = other.deepCopy();
+		//this.coins = new ArrayList<Coin>(other.coins);
+		this.coins = new ArrayList<Coin>();
+		coins.addAll(new ArrayList<Coin>(other.coins));
+		//for(Coin c : other.coins) {
+			//this.coins.add(c);
+			//this.coins.add(new Coin(c));
+		//}
+		
 		this.owner = other.getOwner();
 
 	}
